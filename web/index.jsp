@@ -34,7 +34,7 @@
         <div class="menu-hd">
           <c:if test="${sessionScope.user == null}">
           <a href="/toLogin" target="_top" class="h">亲，请登录</a>
-            <a href="#" target="_top">免费注册</a>
+            <a href="/toRegister" target="_top">免费注册</a>
           </c:if>
             <c:if test="${sessionScope.user != null}">
                 <a href="/toLogin" target="_top" class="h">

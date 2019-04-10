@@ -12,6 +12,7 @@
       <root url="jar://$PROJECT_DIR$/lib/javax.jms.jar!/" />
       <root url="jar://D:/elicpse/jstl/jstl-1.2.jar!/" />
       <root url="jar://D:/elicpse/jstl/standard-1.1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/mysql-connector-java-5.1.47.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
