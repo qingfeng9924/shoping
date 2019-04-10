@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -32,15 +32,15 @@
     <ul class="message-l">
       <div class="topMessage">
         <div class="menu-hd">
-          <c:if test="${sessionScope.user eq null}">
+          <c:if test="${sessionScope.user == null}">
           <a href="/toLogin" target="_top" class="h">亲，请登录</a>
+            <a href="#" target="_top">免费注册</a>
           </c:if>
             <c:if test="${sessionScope.user != null}">
                 <a href="/toLogin" target="_top" class="h">
                     <c:out value="${sessionScope.user.account}"/>,欢迎回来!
                 </a>
             </c:if>
-          <a href="#" target="_top">免费注册</a>
         </div>
       </div>
     </ul>
