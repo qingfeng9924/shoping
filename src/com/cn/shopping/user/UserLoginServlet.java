@@ -34,7 +34,7 @@ public class UserLoginServlet extends HttpServlet {
                 //最原始的方法，保存在session里面,用户会话
                 HttpSession session = request.getSession();
                 //将登陆用户的用户信息存入session
-                session.setAttribute("user",UtilTest.map.get(account));
+                session.setAttribute(account,UtilTest.map.get(account));
                 request.getRequestDispatcher("/toHome").forward(request,response);
             } else {
                 //完善

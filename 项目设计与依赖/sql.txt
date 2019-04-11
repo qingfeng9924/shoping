@@ -1,0 +1,77 @@
+--创建shopping数据库
+create database shopping
+
+--查看数据库
+show databases;
+
+--创建user表;
+--幂等性
+drop table if exists user;
+
+create table user(
+id int auto_increment  primary key NOT NULL comment "ID",
+account varchar(32) not null comment "帐户名",
+password varchar(32) not null comment "密码",
+sex int comment "表示男女，0表示男性，1表示女性",
+email varchar(32) comment"邮箱",
+age int comment"年龄",
+address varchar(128) comment "住址",
+phone_num varchar(16) comment"电话号码"
+)ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1；
+
+--一级分类表
+drop table if exists first_class;
+
+create table first_class(
+id int primary key auto_increment not null,
+name varchar(32),
+icon text
+)ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1；
+
+--二级分类表
+drop table if exists second_class;
+
+create table second_class(
+id int primary key auto_increment not null,
+name varchar(32),
+first_class_id int
+)ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1
+
+--删出表
+drop table ---
+
+--查看表结构
+describe  user
+
+--查看表
+show tables;
+
+
+--增加一个用户彦
+insert into user(account,password,sex,email,age,address,phone_num) 
+values("彦","520",1,"yan@qq.com",8000,"天使家园","13223232323");
+--同时插入多个用户
+insert into user(account,password,sex,email,age,address,phone_num) 
+values("彦","520",1,"yan@qq.com",8000,"天使家园","13223232323"),
+("盖伦","521",1,"盖伦@qq.com",30,"地球","13223232324"),
+("麒麟","522",1,"qiling@qq.com",8000,"地球村","13223232325");
+
+--添加一列
+alter table user add qq_num varchar(16)
+
+--删除一列
+drop column ----
+
+--查询(重要)
+
+select * from user
+
+--删除
+delete from --
+
+--修改
+update   --
+
+--数据库索引和约束
+
+
