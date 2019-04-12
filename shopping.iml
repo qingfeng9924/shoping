@@ -24,6 +24,7 @@
       <library>
         <CLASSES>
           <root url="jar://D:/elicpse/jstl/jstl-1.2.jar!/" />
+          <root url="jar://D:/jstl-1.2.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -33,15 +34,17 @@
       <library>
         <CLASSES>
           <root url="jar://D:/elicpse/jstl/standard-1.1.2.jar!/" />
+          <root url="jar://D:/standard-1.1.2.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="module-library">
+    <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
           <root url="jar://$MODULE_DIR$/lib/mysql-connector-java-5.1.47.jar!/" />
+          <root url="jar://D:/mysql-connector-java-5.1.47.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

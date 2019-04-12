@@ -4,6 +4,8 @@ package com.cn.shopping.model;
  * Created by zhangyuan on 2019/4/1 0001.
  */
 public class User {
+    //姓名
+    private String name;
     //账户
     private String account;
     //密码
@@ -13,6 +15,12 @@ public class User {
     //性别？
 
     //邮箱？
+    public String getName(){
+        return name;
+    }
+    public void setName(String name){
+        this.name=name;
+    }
 
     private String phone;
 

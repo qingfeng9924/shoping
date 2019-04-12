@@ -9,13 +9,13 @@ import java.sql.*;
  */
 public class SqlUtil {
 
-    private static String url = "jdbc:mysql://192.168.93.132:3306/shopping";
+    private static String url = "jdbc:mysql://localhost/shopping";
 
     private static String driverName = "com.mysql.jdbc.Driver";
 
     private static String userName = "root";
 
-    private static String password = "123456";
+    private static String password = "zerosama2333";
 
     private PreparedStatement preparedStatement;
 
@@ -38,7 +38,7 @@ public class SqlUtil {
     }
 
     public void insertUser(User user){
-        String sql = "insert into user(account,password,phone_num) values(?,?,?)";
+        String sql = "insert into user(account,password,phone) values(?,?,?)";
         try {
             this.preparedStatement = connection.prepareCall(sql);
             preparedStatement.setString(1,user.getAccount());
@@ -52,8 +52,5 @@ public class SqlUtil {
         }
     }
 
-    public User search(String account){
-        return null;
-    }
 
 }

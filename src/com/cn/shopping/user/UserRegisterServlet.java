@@ -28,6 +28,7 @@ public class UserRegisterServlet extends HttpServlet {
             //存入数据库
             SqlUtil sqlUtil = new SqlUtil();
             sqlUtil.insertUser(newUser);
+            request.getRequestDispatcher("/gotoLogin").forward(request,response);
         }
     }
 
