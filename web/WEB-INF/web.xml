@@ -52,13 +52,4 @@
         <url-pattern>/toRegister</url-pattern>
     </servlet-mapping>
 
-    <servlet>
-        <servlet-name>ToUserRegisterServlet</servlet-name>
-        <servlet-class>com.cn.shopping.html.ToHomeServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ToUserRegisterServlet</servlet-name>
-        <url-pattern>/gotoLogin</url-pattern>
-    </servlet-mapping>
-
 </web-app>

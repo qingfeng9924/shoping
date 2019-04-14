@@ -11,18 +11,31 @@ public class User {
     //密码
     private String password;
     //年龄？
-
+    private String age;
     //性别？
-
+    private String gender;
     //邮箱？
-    public String getName(){
-        return name;
-    }
-    public void setName(String name){
-        this.name=name;
-    }
-
+    private String email;
+    //电话
     private String phone;
+
+
+
+    public String getName(){ return name; }
+
+    public void setName(String name){ this.name=name; }
+
+    public String getAge(){ return age; }
+
+    public void setAge(String age){ this.age=age; }
+
+    public String getGender(){ return gender; }
+
+    public void setGender(String gender){ this.gender=gender; }
+
+    public String getEmail(){ return email; }
+
+    public void setEmail(String email){ this.email=email; }
 
     public String getPhone() {
         return phone;
