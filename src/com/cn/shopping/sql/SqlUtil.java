@@ -1,6 +1,8 @@
 package com.cn.shopping.sql;
 
 import com.cn.shopping.model.GoodsFirstClass;
+import com.cn.shopping.model.GoodsSecondClass;
+import com.cn.shopping.model.GoodsThirdClass;
 import com.cn.shopping.model.User;
 
 import java.sql.*;
@@ -72,12 +74,14 @@ public class SqlUtil {
      * @param user
      */
     public String loginMethod(User user){
-        String sql = "select password from user where account = ? ";
+        String sql = "select password from user where account = ? or email = ?";
          String pass = null;
         try {
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1,user.getAccount());
+            preparedStatement.setString(2,user.getEmail());
 
+            //????
             resultSet = preparedStatement.executeQuery();
             // 要把光标向下一行才是获取数据
             resultSet.next();
@@ -112,4 +116,52 @@ public class SqlUtil {
     }
 
 
+    /**
+     * 查询出所有的二级菜单
+     */
+    public List<GoodsSecondClass> findGoodsSecondClass() {
+        String sql = "SELECT id,name,first_class_id FROM second_class";
+        List<GoodsSecondClass> queryResult = new ArrayList<>();
+        try {
+            this.preparedStatement = connection.prepareStatement(sql);
+            resultSet = this.preparedStatement.executeQuery();
+            while(resultSet.next()){
+                GoodsSecondClass goodsSecondClass = new GoodsSecondClass();
+                //取出第一行的第一列
+                goodsSecondClass.setId(resultSet.getInt(1));
+                goodsSecondClass.setName(resultSet.getString(2));
+                goodsSecondClass.setFirstClassId(resultSet.getInt(3));
+                //将一级分类添加到list
+                queryResult.add(goodsSecondClass);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return queryResult;
+    }
+
+    /**
+     * 查询出所有的三级菜单
+     * @return
+     */
+    public List<GoodsThirdClass> findGoodsThirdClass() {
+        String sql = "SELECT id,name,second_class_id FROM third_class";
+        List<GoodsThirdClass> queryResult = new ArrayList<>();
+        try {
+            this.preparedStatement = connection.prepareStatement(sql);
+            resultSet = this.preparedStatement.executeQuery();
+            while(resultSet.next()){
+                GoodsThirdClass goodsThirdClass = new GoodsThirdClass();
+                //取出第一行的第一列
+                goodsThirdClass.setId(resultSet.getInt(1));
+                goodsThirdClass.setName(resultSet.getString(2));
+                goodsThirdClass.setSecondClassId(resultSet.getInt(3));
+                //将一级分类添加到list
+                queryResult.add(goodsThirdClass);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return queryResult;
+    }
 }

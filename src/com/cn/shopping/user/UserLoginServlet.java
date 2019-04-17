@@ -28,7 +28,7 @@ public class UserLoginServlet extends HttpServlet {
         newUser.setPassword(password);
         newUser.setEmail(email);
         SqlUtil sqlUtil=new SqlUtil();
-        sqlUtil.loginMethod(newUser);
+        String userPwd = sqlUtil.loginMethod(newUser);
 
 
 
