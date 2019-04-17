@@ -35,12 +35,12 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>RegistServlet</servlet-name>
+        <servlet-name>RegisterServlet</servlet-name>
         <servlet-class>com.cn.shopping.user.UserRegisterServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>RegistServlet</servlet-name>
-        <url-pattern>/regist</url-pattern>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/register</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -52,4 +52,12 @@
         <url-pattern>/toRegister</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>userLoginServlet</servlet-name>
+        <servlet-class>com.cn.shopping.user.UserLoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>userLoginServlet</servlet-name>
+        <url-pattern>/userLoginServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

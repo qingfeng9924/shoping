@@ -36,7 +36,7 @@
             <div class="clear"></div>
 
             <div class="login-form">
-                <form action="/login" method="GET">
+                <form action="/userLoginServlet" method="post">
                     <div class="user-name">
                         <label for="user"><i class="am-icon-user"></i></label>
                         <input type="text" name="account" id="user" placeholder="邮箱/手机/用户名">

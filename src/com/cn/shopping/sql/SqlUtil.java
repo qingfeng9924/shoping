@@ -71,17 +71,38 @@ public class SqlUtil {
      *
      * @param user
      */
+    public String loginMethod(User user){
+        String sql = "select password from user where account = ? ";
+         String pass = null;
+        try {
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,user.getAccount());
+
+            resultSet = preparedStatement.executeQuery();
+            // 要把光标向下一行才是获取数据
+            resultSet.next();
+            pass = resultSet.getString("password");
+
+            preparedStatement.close();
+            connection.close();
+
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+        return pass;
+    }
+
     public void insertUser(User user){
         String sql = "insert into user(name,age,gender,account,password,phone,email) values(?,?,?,?,?,?,?)";
         try {
             this.preparedStatement = connection.prepareCall(sql);
             preparedStatement.setString(1,user.getName());
-            preparedStatement.setString(1,user.getAge());
-            preparedStatement.setString(1,user.getGender());
-            preparedStatement.setString(1,user.getAccount());
-            preparedStatement.setString(2,user.getPassword());
-            preparedStatement.setString(3,user.getPhone());
-            preparedStatement.setString(1,user.getEmail());
+            preparedStatement.setString(2,user.getAge());
+            preparedStatement.setString(3,user.getGender());
+            preparedStatement.setString(4,user.getAccount());
+            preparedStatement.setString(5,user.getPassword());
+            preparedStatement.setString(6,user.getPhone());
+            preparedStatement.setString(7,user.getEmail());
             preparedStatement.execute();
             preparedStatement.close();
             connection.close();
@@ -89,9 +110,6 @@ public class SqlUtil {
 
         }
     }
-    public void searchUser(){
 
-        String account="select account,password from user ";
-    }
 
 }
