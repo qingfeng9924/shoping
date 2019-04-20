@@ -1,5 +1,6 @@
 package com.cn.shopping.html;
 
+import com.cn.shopping.model.GoodsBusinessClass;
 import com.cn.shopping.model.GoodsFirstClass;
 import com.cn.shopping.model.GoodsSecondClass;
 import com.cn.shopping.model.GoodsThirdClass;
@@ -55,6 +56,8 @@ public class ToHomeServlet extends HttpServlet {
             }
             goodsSecondClass.setGoodsThirdClassList(goodsThirdClasses);
         }
+
+
 
         //放入servletContext
         ServletContext servletContext = this.getServletContext();

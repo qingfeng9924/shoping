@@ -9,9 +9,18 @@ public class GoodsThirdClass {
     private String name;
 
     private Integer secondClassId;
+    private Integer businessClassId;
 
     public Integer getId() {
         return id;
+    }
+
+    public void setBusinessClassId(Integer businessClassId) {
+        this.businessClassId = businessClassId;
+    }
+
+    public Integer getBusinessClassId() {
+        return businessClassId;
     }
 
     public void setId(Integer id) {

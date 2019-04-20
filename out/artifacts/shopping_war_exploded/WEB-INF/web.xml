@@ -60,4 +60,14 @@
         <servlet-name>userLoginServlet</servlet-name>
         <url-pattern>/userLoginServlet</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>GoodsClassSearchServlet</servlet-name>
+        <servlet-class>com.cn.shopping.goods.GoodsClassSearchServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GoodsClassSearchServlet</servlet-name>
+        <url-pattern>/goodsClassSearchServlet</url-pattern>
+    </servlet-mapping>
+    
 </web-app>

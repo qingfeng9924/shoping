@@ -122,7 +122,7 @@
                             <c:forEach items="${applicationScope.firstClass}" var="firstClass">
                             <li class="appliance js_toggle relative first">
                                 <div class="category-info">
-                                    <h3 class="category-name b-category-name"><i><img src="../images/cake.png"></i><a class="ml-22" title="点心">${firstClass.name}</a></h3>
+                                    <h3 class="category-name b-category-name"><i><img src="${firstClass.icon}"></i><a class="ml-22" title="点心">${firstClass.name}</a></h3>
                                     <em>&gt;</em>
                                 </div>
 
@@ -135,7 +135,7 @@
                                                                             <dl class="dl-sort">
                                                                             <dt><span title="${secondClass.name}">${secondClass.name}</span></dt>
                                                                             <c:forEach items="${secondClass.goodsThirdClassList}" var="thirdClass">
-                                                                                <dd><a title="${thirdClass.name}" href="#"><span>${thirdClass.name}</span></a></dd>
+                                                                                <dd><a title="${thirdClass.name}" href="/goodsClassSearchServlet?thirdClassId=${thirdClass.id}&thirdClassName=${thirdClass.name}"><span>${thirdClass.name}</span></a></dd>
                                                                             </c:forEach>
                                                                             </dl>
                                                                         </c:forEach>
@@ -163,13 +163,11 @@
                                                     <%--</div>--%>
                                                     <div class="brand-side">
                                                         <dl class="dl-sort"><dt><span>实力商家</span></dt>
-                                                            <dd><a rel="nofollow" title="呵官方旗舰店" target="_blank" href="#" rel="nofollow"><span  class="red" >呵官方旗舰店</span></a></dd>
-                                                            <dd><a rel="nofollow" title="格瑞旗舰店" target="_blank" href="#" rel="nofollow"><span >格瑞旗舰店</span></a></dd>
-                                                            <dd><a rel="nofollow" title="飞彦大厂直供" target="_blank" href="#" rel="nofollow"><span  class="red" >飞彦大厂直供</span></a></dd>
-                                                            <dd><a rel="nofollow" title="红e·艾菲妮" target="_blank" href="#" rel="nofollow"><span >红e·艾菲妮</span></a></dd>
-                                                            <dd><a rel="nofollow" title="本真旗舰店" target="_blank" href="#" rel="nofollow"><span  class="red" >本真旗舰店</span></a></dd>
-                                                            <dd><a rel="nofollow" title="杭派女装批发网" target="_blank" href="#" rel="nofollow"><span  class="red" >杭派女装批发网</span></a></dd>
+                                                            <c:forEach items="${sessionScope.goodsBusinessClass}">${goodsBusinessClass.name}"
+                                                            <dd><a rel="nofollow" title="${goodsBusinessClass.name}" target="_blank" href="#" rel="nofollow"><span  class="red" >${goodsBusinessClass.name}</span></a></dd>
+
                                                         </dl>
+                                                        </c:forEach>
                                                     </div>
                                                 </div>
                                             </div>
@@ -179,6 +177,7 @@
                             </li>
                             </c:forEach>
                             <li class="appliance js_toggle relative">
+
 
 
 
@@ -1299,7 +1298,7 @@
 <!--引导 -->
 
 <div class="navCir">
-    <li class="active"><a href="home3.html"><i class="am-icon-home "></i>首页</a></li>
+    <li class="active"><a href="/toHome"><i class="am-icon-home "></i>首页</a></li>
     <li><a href="sort.html"><i class="am-icon-list"></i>分类</a></li>
     <li><a href="shopcart.html"><i class="am-icon-shopping-basket"></i>购物车</a></li>
     <li><a href="../person/index.html"><i class="am-icon-user"></i>我的</a></li>
