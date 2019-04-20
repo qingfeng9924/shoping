@@ -1,6 +1,7 @@
 package com.cn.shopping.goods;
 
 import com.cn.shopping.model.Goods;
+import com.cn.shopping.model.SearchCondition;
 import com.cn.shopping.sql.SqlUtil;
 
 import javax.servlet.ServletException;
@@ -20,8 +21,12 @@ public class GoodsClassSearchServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String id = request.getParameter("thirdClassId");
+        SearchCondition searchCondition = new SearchCondition();
+        if(id != null){
+            searchCondition.setThirdClassId(Integer.parseInt(id));
+        }
         SqlUtil sqlUtil = new SqlUtil();
-        List<Goods> goodsSearchList = sqlUtil.findGoodsByThirdClassId(Integer.parseInt(id));
+        List<Goods> goodsSearchList = sqlUtil.findGoodsByThirdClassId(searchCondition);
         HttpSession session = request.getSession();
         session.setAttribute("searchResult",goodsSearchList);
         response.sendRedirect("/jsp/GoodsSearchResult.jsp");

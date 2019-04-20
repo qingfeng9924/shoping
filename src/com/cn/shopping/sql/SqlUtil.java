@@ -11,13 +11,13 @@ import java.util.List;
  */
 public class SqlUtil {
 
-    private static String url = "jdbc:mysql://localhost:3306/shopping";
+    private static String url = "jdbc:mysql://192.168.93.132:3306/shopping";
 
     private static String driverName = "com.mysql.jdbc.Driver";
 
     private static String userName = "root";
 
-    private static String password = "zerosama2333";
+    private static String password = "123456";
 
     private PreparedStatement preparedStatement;
 
@@ -168,12 +168,14 @@ public class SqlUtil {
     /**
      * 通过3级分类id查询商品
      */
-    public List<Goods> findGoodsByThirdClassId(int i){
-        String sql = "SELECT id,name,price_pre,price_now,describ,third_class_id,num,salesVolume,icon FROM goods where third_class_id=?";
+    public List<Goods> findGoodsByThirdClassId(SearchCondition searchCondition){
+        String sql = generateSql(searchCondition);
         List<Goods> queryResult = new ArrayList<>();
         try {
             this.preparedStatement = connection.prepareStatement(sql);
-            this.preparedStatement.setInt(1,i);
+            if(null != searchCondition.getThirdClassId()){
+                this.preparedStatement.setInt(1,searchCondition.getThirdClassId());
+            }
             resultSet = this.preparedStatement.executeQuery();
             while (resultSet.next()) {
                 Goods goods = new Goods();
@@ -184,7 +186,7 @@ public class SqlUtil {
                 goods.setPriceNow(resultSet.getFloat(4));
                 goods.setDescrib(resultSet.getString(5));
                 goods.setThirdClassId(resultSet.getInt(6));
-                goods.setPriceNow(resultSet.getInt(7));
+                goods.setNum(resultSet.getInt(7));
                 goods.setSalesVolume(resultSet.getInt(8));
                 goods.setIcon(resultSet.getString(9));
                 //将一级分类添加到list
@@ -194,6 +196,16 @@ public class SqlUtil {
             e.printStackTrace();
         }
         return queryResult;
+    }
+
+    private String generateSql(SearchCondition searchCondition){
+        String sql = "SELECT id,name,price_pre,price_now,describ,third_class_id,num,salesVolume,icon FROM goods where ";
+        if(null != searchCondition.getThirdClassId()){
+            sql = sql + "third_class_id=?";
+        }
+
+        //
+        return sql;
     }
 
 
@@ -220,6 +232,31 @@ public class SqlUtil {
             e.printStackTrace();
         }
         return queryResult;
+    }
+
+
+    public Goods findGoodsById(String id) {
+        String sql = "SELECT id,name,price_pre,price_now,describ,third_class_id,num,salesVolume,icon FROM goods WHERE id = ?";
+        Goods goods = new Goods();
+        try {
+            this.preparedStatement = connection.prepareStatement(sql);
+            this.preparedStatement.setInt(1,Integer.parseInt(id));
+            ResultSet resultSet = this.preparedStatement.executeQuery();
+            while(resultSet.next()){
+                goods.setId(resultSet.getInt(1));
+                goods.setName(resultSet.getString(2));
+                goods.setPricePre(resultSet.getFloat(3));
+                goods.setPriceNow(resultSet.getFloat(4));
+                goods.setDescrib(resultSet.getString(5));
+                goods.setThirdClassId(resultSet.getInt(6));
+                goods.setNum(resultSet.getInt(7));
+                goods.setSalesVolume(resultSet.getInt(8));
+                goods.setIcon(resultSet.getString(9));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return goods;
     }
 }
 

@@ -165,9 +165,8 @@
                                                         <dl class="dl-sort"><dt><span>实力商家</span></dt>
                                                             <c:forEach items="${sessionScope.goodsBusinessClass}">${goodsBusinessClass.name}"
                                                             <dd><a rel="nofollow" title="${goodsBusinessClass.name}" target="_blank" href="#" rel="nofollow"><span  class="red" >${goodsBusinessClass.name}</span></a></dd>
-
+                                                            </c:forEach>
                                                         </dl>
-                                                        </c:forEach>
                                                     </div>
                                                 </div>
                                             </div>
